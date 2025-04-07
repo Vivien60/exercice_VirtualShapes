@@ -9,8 +9,8 @@ class TypeOrderForShape extends AbstractOrderForShape
     public static function orderList($elt1, $elt2) : int
     {
         $order = Config::newInstance()->shapesOrder;
-        $rankForElt1 = array_search($elt1::class, $order);
-        $rankForElt2 = array_search($elt2::class, $order);
+        $rankForElt1 = array_search($elt1::class, self::$eltOrder);
+        $rankForElt2 = array_search($elt2::class, self::$eltOrder);
         if ($rankForElt1 == $rankForElt2) {
             return 0;
         }

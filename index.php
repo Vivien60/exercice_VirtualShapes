@@ -32,10 +32,9 @@ use virtualShapes\classes\Square;
  * HOLLY SHIT ! New order policies asked by our client !
  * Time to refactor ... YES !
  */
-AbstractShape::$sorter = new \virtualShapes\classes\ColorOrderForShape();
+AbstractShape::$sorter = config\Config::newInstance()->shapesOrder;
 $shapesToDraw = [new Square(), new Circle()];
 usort($shapesToDraw, [AbstractShape::class, 'orderList']);
-var_dump(\config\Config::newInstance()->shapesOrder);
 foreach($shapesToDraw as $aShape)
 {
     $aShape->draw();
