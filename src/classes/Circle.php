@@ -1,6 +1,6 @@
 <?php
 namespace virtualShapes\classes;
-class Square extends AbstractShape
+class Circle extends AbstractShape
 {
     public function __construct()
     {
@@ -8,6 +8,6 @@ class Square extends AbstractShape
 
     public function draw()
     {
-        echo 'Draw a square';
+        echo 'Draw a circle';
     }
 }
