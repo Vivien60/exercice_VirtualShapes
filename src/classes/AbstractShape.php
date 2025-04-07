@@ -7,16 +7,12 @@ use config\Config;
 abstract class AbstractShape
 {
     public static string $color = 'white';
+    public static AbstractOrderForShape $sorter;
 
     abstract public function draw();
 
-    public static function orderList($elt1, $elt2)
+    public static function orderList(AbstractShape $elt1, AbstractShape $elt2) : int
     {
-        $order = Config::newInstance()->shapesOrder;
-        $rankForElt1 = array_search($elt1::class, $order);
-        $rankForElt2 = array_search($elt2::class, $order);
-        if( $rankForElt1 == $rankForElt2 )
-            return 0;
-        return ($rankForElt1 < $rankForElt2) ? -1 : 1;
+        return self::$sorter::orderList($elt1, $elt2);
     }
 }

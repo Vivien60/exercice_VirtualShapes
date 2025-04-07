@@ -27,7 +27,12 @@ use virtualShapes\classes\Square;
  * $shapesToDraw = [new Square(2), new Circle(3)]
  * $orderedList = do something to $shapesToDraw
  */
-
+/*
+ * Step 5 :
+ * HOLLY SHIT ! New order policies asked by our client !
+ * Time to refactor ... YES !
+ */
+AbstractShape::$sorter = new \virtualShapes\classes\ColorOrderForShape();
 $shapesToDraw = [new Square(), new Circle()];
 usort($shapesToDraw, [AbstractShape::class, 'orderList']);
 var_dump(\config\Config::newInstance()->shapesOrder);
@@ -36,8 +41,3 @@ foreach($shapesToDraw as $aShape)
     $aShape->draw();
     echo PHP_EOL;
 }
-/*
- * Step 5 :
- * HOLLY SHIT ! New order policies asked by our client !
- * Time to refactor ... YES !
- */
