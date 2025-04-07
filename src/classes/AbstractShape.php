@@ -6,6 +6,8 @@ use config\Config;
 
 abstract class AbstractShape
 {
+    public static string $color = 'white';
+
     abstract public function draw();
 
     public static function orderList($elt1, $elt2)

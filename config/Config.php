@@ -13,7 +13,7 @@ class Config
     private function __construct()
     {
         self::$_instance = $this;
-        $this->shapesOrder = [Circle::class, Square::class];
+        $this->shapesOrder = ['red', 'green', 'white', 'blue'];
     }
 
     public static function newInstance(): static
