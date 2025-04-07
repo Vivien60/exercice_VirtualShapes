@@ -18,5 +18,21 @@ function autoload_virtualShapes_1247575(string $nomClasse) : void {
         return;
     }
 }
+function configFiles_1247575(string $nomClasse): void
+{
+    if(!(stripos($nomClasse, 'config') !== false)) {
+        return;
+    }
+    $class = implode(DIRECTORY_SEPARATOR, [
+        dirname(__DIR__),
+        str_replace("\\", DIRECTORY_SEPARATOR, "$nomClasse.php"),
+    ]);
+    if(file_exists($class)) {
+        include $class;
+        return;
+    }
+}
 
 spl_autoload_register('autoload_virtualShapes_1247575');
+
+spl_autoload_register('configFiles_1247575');

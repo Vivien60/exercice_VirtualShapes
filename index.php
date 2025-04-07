@@ -7,6 +7,7 @@ declare(strict_types=1);
  */
 require_once("src/autoload.php");
 
+use virtualShapes\classes\AbstractShape;
 use virtualShapes\classes\Circle;
 use virtualShapes\classes\Square;
 /*
@@ -21,14 +22,22 @@ use virtualShapes\classes\Square;
  * $aCircle = new Circle(3);
  * $aCircle->draw()
  */
-$aSquare = new Square();
-$aSquare->draw();
-echo PHP_EOL;
-$aCircle = new Circle();
-$aCircle->draw();
-echo PHP_EOL;
 /*
  * Step 4 :
  * $shapesToDraw = [new Square(2), new Circle(3)]
  * $orderedList = do something to $shapesToDraw
+ */
+
+$shapesToDraw = [new Square(), new Circle()];
+usort($shapesToDraw, [AbstractShape::class, 'orderList']);
+var_dump(\config\Config::newInstance()->shapesOrder);
+foreach($shapesToDraw as $aShape)
+{
+    $aShape->draw();
+    echo PHP_EOL;
+}
+/*
+ * Step 5 :
+ * HOLLY SHIT ! New order policies asked by our client !
+ * Time to refactor ... YES !
  */
