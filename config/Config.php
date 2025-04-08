@@ -2,20 +2,20 @@
 declare(strict_types=1);
 namespace config;
 
-use virtualShapes\classes\AbstractOrderForShape;
+use virtualShapes\classes\AbstractShapeSortStrategy;
 use virtualShapes\classes\Circle;
-use virtualShapes\classes\ColorOrderForShape;
+use virtualShapes\classes\ColorShapeSortStrategy;
 use virtualShapes\classes\Square;
 
 class Config
 {
     private static ?Config $_instance = null;
-    public AbstractOrderForShape $shapesOrder;
+    public AbstractShapeSortStrategy $shapesOrder;
 
     private function __construct()
     {
         self::$_instance = $this;
-        $this->shapesOrder = new ColorOrderForShape(['red', 'white', 'blue', 'green', ]);
+        $this->shapesOrder = new ColorShapeSortStrategy(['red', 'white', 'blue', 'green', ]);
     }
 
     public static function newInstance(): static

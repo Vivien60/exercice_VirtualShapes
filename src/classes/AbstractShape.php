@@ -8,7 +8,7 @@ abstract class AbstractShape
 {
     private string $color;
 
-    public static AbstractOrderForShape $sorter;
+    public static AbstractShapeSortStrategy $sorter;
 
     public function __construct(string $color)
     {
@@ -22,7 +22,7 @@ abstract class AbstractShape
         if(!self::$sorter) {
             throw new \LogicException("Sorter strategy not initialized");
         }
-        return self::$sorter::orderList($elt1, $elt2);
+        return self::$sorter->orderList($elt1, $elt2);
     }
 
     public function getColor(): string
