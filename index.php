@@ -33,7 +33,7 @@ use virtualShapes\classes\Square;
  * Time to refactor ... YES !
  */
 AbstractShape::$sorter = config\Config::newInstance()->shapesOrder;
-$shapesToDraw = [new Square(), new Circle()];
+$shapesToDraw = [new Square('whsdfsdite'), new Circle('blue')];
 usort($shapesToDraw, [AbstractShape::class, 'orderList']);
 foreach($shapesToDraw as $aShape)
 {
