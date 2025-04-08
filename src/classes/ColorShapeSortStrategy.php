@@ -8,7 +8,6 @@ class ColorShapeSortStrategy extends AbstractShapeSortStrategy
 {
     public static function orderList($elt1, $elt2) : int
     {
-        $order = Config::newInstance()->shapesOrder;
         $rankForElt1 = array_search($elt1->getColor(), self::$eltOrder);
         $rankForElt2 = array_search($elt2->getColor(), self::$eltOrder);
         if(!$rankForElt1 || !$rankForElt2) {
