@@ -8,7 +8,7 @@ abstract class AbstractShape
 {
     private string $color;
 
-    public static AbstractOrderForShape $sorter;
+    public static AbstractShapeSortStrategy $sorter;
 
     public function __construct(string $color)
     {

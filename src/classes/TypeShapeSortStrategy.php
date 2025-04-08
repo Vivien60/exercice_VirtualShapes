@@ -4,7 +4,7 @@ namespace virtualShapes\classes;
 
 use config\Config;
 
-class TypeOrderForShape extends AbstractOrderForShape
+class TypeShapeSortStrategy extends AbstractShapeSortStrategy
 {
     public static function orderList($elt1, $elt2) : int
     {

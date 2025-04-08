@@ -2,7 +2,7 @@
 
 namespace virtualShapes\classes;
 
-abstract class AbstractOrderForShape
+abstract class AbstractShapeSortStrategy
 {
     protected static array $eltOrder;
 
