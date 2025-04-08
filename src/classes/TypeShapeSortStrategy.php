@@ -6,10 +6,10 @@ use config\Config;
 
 class TypeShapeSortStrategy extends AbstractShapeSortStrategy
 {
-    public static function orderList($elt1, $elt2) : int
+    public function orderList($elt1, $elt2) : int
     {
-        $rankForElt1 = array_search($elt1::class, self::$eltOrder);
-        $rankForElt2 = array_search($elt2::class, self::$eltOrder);
+        $rankForElt1 = array_search($elt1::class, $this->eltOrder);
+        $rankForElt2 = array_search($elt2::class, $this->eltOrder);
         if ($rankForElt1 == $rankForElt2) {
             return 0;
         }

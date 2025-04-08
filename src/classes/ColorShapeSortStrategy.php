@@ -6,10 +6,10 @@ use config\Config;
 
 class ColorShapeSortStrategy extends AbstractShapeSortStrategy
 {
-    public static function orderList($elt1, $elt2) : int
+    public function orderList($elt1, $elt2) : int
     {
-        $rankForElt1 = array_search($elt1->getColor(), self::$eltOrder);
-        $rankForElt2 = array_search($elt2->getColor(), self::$eltOrder);
+        $rankForElt1 = array_search($elt1->getColor(), $this->eltOrder);
+        $rankForElt2 = array_search($elt2->getColor(), $this->eltOrder);
         if(!$rankForElt1 || !$rankForElt2) {
             throw new \LogicException("One or more color is not in pre-sorted list");
         }

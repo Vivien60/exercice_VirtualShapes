@@ -22,7 +22,7 @@ abstract class AbstractShape
         if(!self::$sorter) {
             throw new \LogicException("Sorter strategy not initialized");
         }
-        return self::$sorter::orderList($elt1, $elt2);
+        return self::$sorter->orderList($elt1, $elt2);
     }
 
     public function getColor(): string

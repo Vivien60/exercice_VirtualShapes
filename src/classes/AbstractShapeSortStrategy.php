@@ -4,12 +4,10 @@ namespace virtualShapes\classes;
 
 abstract class AbstractShapeSortStrategy
 {
-    protected static array $eltOrder;
 
-    public function __construct(array $eltOrder)
+    public function __construct(protected array $eltOrder)
     {
-        self::$eltOrder = $eltOrder;
     }
 
-    abstract public static function orderList(AbstractShape $elt1, AbstractShape $elt2):int;
+    abstract public function orderList(AbstractShape $elt1, AbstractShape $elt2):int;
 }
